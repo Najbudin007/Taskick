@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Taskick - Dashboard</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/mobile-styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+  <div class="app-container">
+    <!-- Sidebar overlay -->
+    <div class="sidebar-overlay"></div>
+    
+    <!-- Sidebar -->
+    <div class="sidebar">
+      <div class="sidebar-header">
+        <h1>Taskick</h1>
+      </div>
+      <div class="user-info">
+        <i class="fas fa-user-circle"></i>
+        <span id="user-name">User Account</span>
+      </div>
+      <ul class="nav-menu">
+        <li class="active"><a href="dashboard.html"><i class="fas fa-home"></i> Home</a></li>
+        <li><a href="calendar.html"><i class="fas fa-calendar"></i> Calendar</a></li>
+        <li><a href="progress.html"><i class="fas fa-chart-line"></i> My Progress</a></li>
+        <li><a href="customization.html"><i class="fas fa-paint-brush"></i> Customization</a></li>
+        <li><a href="settings.html"><i class="fas fa-cog"></i> Settings</a></li>
+      </ul>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+      <!-- Header -->
+      <header class="main-header">
+        <div class="header-left">
+          <div class="hamburger-menu">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+        </div>
+        <div class="quote">Procrastination is the art of keeping up with yesterday.</div>
+        <div class="header-right">
+          <div class="search-box">
+            <input type="text" placeholder="Search">
+            <button><i class="fas fa-search"></i></button>
+          </div>
+          <div class="notification">
+            <i class="fas fa-bell"></i>
+            <span class="notification-badge">1</span>
+          </div>
+        </div>
+      </header>
+
+      <!-- Task List -->
+      <div class="content-wrapper">
+        <div class="task-list" id="task-list">
+          <!-- Tasks will be dynamically added here -->
+        </div>
+        <button id="add-task-btn" class="btn btn-icon">
+          <i class="fas fa-plus"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Add Task Modal -->
+  <div id="task-modal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <div class="modal-layout">
+        <div class="modal-main">
+          <h2 id="modal-title">Add New Task</h2>
+          <div class="form-group">
+            <label for="task-title">Task Title</label>
+            <input type="text" id="task-title" placeholder="Enter task title">
+          </div>
+          <div class="form-group">
+            <label for="task-description">Description</label>
+            <textarea id="task-description" placeholder="Enter task description"></textarea>
+          </div>
+          <div class="subtasks-container" id="subtasks-container">
+            <!-- Subtasks will be added here -->
+          </div>
+          <div class="add-subtask">
+            <button id="add-subtask-btn" class="btn btn-text">
+              <i class="fas fa-plus"></i> Add sub-task
+            </button>
+          </div>
+          <div class="comment-section">
+            <div class="comment-input">
+              <input type="text" id="comment-input" placeholder="Add a comment">
+              <div class="comment-actions">
+                <div class="comment-buttons">
+                  <button id="cancel-comment" class="btn btn-text">Cancel</button>
+                  <button id="add-comment" class="btn btn-primary">Comment</button>
+                </div>
+              </div>
+            </div>
+            <div id="comments-container" class="comments-container">
+              <!-- Comments will be added here -->
+            </div>
+          </div>
+        </div>
+        <div class="modal-sidebar">
+          <div class="sidebar-section">
+            <h3>Date</h3>
+            <div class="sidebar-content">
+              <div class="date-selector" id="date-selector">
+                <i class="fas fa-calendar"></i> <span id="selected-date">Today</span>
+              </div>
+              <div id="date-picker" class="date-picker">
+                <input type="date" id="task-date" class="sidebar-input">
+              </div>
+            </div>
+          </div>
+          <div class="sidebar-section">
+            <h3>Deadline</h3>
+            <div class="sidebar-content">
+              <input type="date" id="task-deadline" class="sidebar-input">
+            </div>
+          </div>
+          <div class="sidebar-section">
+            <h3>Priority</h3>
+            <div class="sidebar-content">
+              <div class="priority-dropdown">
+                <div class="priority-selected" id="priority-selected">
+                  <i class="fas fa-flag priority-flag p4"></i> P4
+                </div>
+                <div class="priority-options" id="priority-options">
+                  <div class="priority-option" data-priority="1">
+                    <i class="fas fa-flag priority-flag p1"></i> Priority 1
+                  </div>
+                  <div class="priority-option" data-priority="2">
+                    <i class="fas fa-flag priority-flag p2"></i> Priority 2
+                  </div>
+                  <div class="priority-option" data-priority="3">
+                    <i class="fas fa-flag priority-flag p3"></i> Priority 3
+                  </div>
+                  <div class="priority-option" data-priority="4">
+                    <i class="fas fa-flag priority-flag p4"></i> Priority 4
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="sidebar-section">
+            <h3>Reminders</h3>
+            <div class="sidebar-content">
+              <div id="reminders-container" class="reminders-container">
+                <!-- Reminders will be added here -->
+              </div>
+              <button id="add-reminder-btn" class="btn btn-add-item">
+                <i class="fas fa-plus"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button id="save-task-btn" class="btn btn-primary">Save Task</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Reminder Modal -->
+  <div id="reminder-modal" class="modal">
+    <div class="modal-content reminder-modal-content">
+      <span class="close reminder-close">&times;</span>
+      <h2>Reminders</h2>
+      <div class="reminder-options">
+        <div class="reminder-option-tabs">
+          <button class="reminder-tab active" data-type="date">Date & time</button>
+          <button class="reminder-tab" data-type="before">Before task</button>
+        </div>
+        <div id="date-time-option" class="reminder-option-content">
+          <div class="form-group">
+            <label for="reminder-date">Date</label>
+            <input type="date" id="reminder-date" class="sidebar-input">
+          </div>
+          <div class="form-group">
+            <label for="reminder-time">Time</label>
+            <input type="time" id="reminder-time" class="sidebar-input">
+          </div>
+        </div>
+        <div id="before-task-option" class="reminder-option-content" style="display: none;">
+          <div class="form-group">
+            <label for="reminder-before">Time before deadline</label>
+            <select id="reminder-before" class="sidebar-input">
+              <option value="15">15 minutes before</option>
+              <option value="30">30 minutes before</option>
+              <option value="60">1 hour before</option>
+              <option value="120">2 hours before</option>
+              <option value="1440">1 day before</option>
+            </select>
+          </div>
+        </div>
+        <div class="reminder-message" id="reminder-message">
+          <i class="fas fa-info-circle"></i> Add a time to the task first.
+        </div>
+        <div class="reminder-actions">
+          <button id="cancel-reminder" class="btn btn-text">Cancel</button>
+          <button id="save-reminder" class="btn btn-primary">Add reminder</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/auth-check.js"></script>
+  <script src="js/theme.js"></script>
+  <script src="js/tasks.js"></script>
+  <script>
+    // Store the original editTask function if it exists
+    if (typeof editTask === 'function') {
+      window.originalEditTask = editTask;
+    }
+  </script>
+  <script src="js/mobile.js"></script>
+</body>
+</html>
+

@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Taskick - User Profile</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/mobile-styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+  <div class="app-container">
+    <!-- Sidebar overlay -->
+    <div class="sidebar-overlay"></div>
+    
+    <!-- Sidebar -->
+    <div class="sidebar">
+      <div class="sidebar-header">
+        <h1>Taskick</h1>
+      </div>
+      <div class="user-info">
+        <i class="fas fa-user-circle"></i>
+        <span id="user-name">User Account</span>
+      </div>
+      <ul class="nav-menu">
+        <li><a href="dashboard.html"><i class="fas fa-home"></i> Home</a></li>
+        <li><a href="calendar.html"><i class="fas fa-calendar"></i> Calendar</a></li>
+        <li><a href="progress.html"><i class="fas fa-chart-line"></i> My Progress</a></li>
+        <li><a href="customization.html"><i class="fas fa-paint-brush"></i> Customization</a></li>
+        <li><a href="settings.html"><i class="fas fa-cog"></i> Settings</a></li>
+      </ul>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+      <!-- Header -->
+      <header class="main-header">
+        <div class="header-left">
+          <div class="hamburger-menu">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+        </div>
+        <div class="quote">Procrastination is the art of keeping up with yesterday.</div>
+        <div class="header-right">
+          <div class="search-box">
+            <input type="text" placeholder="Search">
+            <button><i class="fas fa-search"></i></button>
+          </div>
+          <div class="notification">
+            <i class="fas fa-bell"></i>
+            <span class="notification-badge">1</span>
+          </div>
+        </div>
+      </header>
+
+      <!-- User Profile Content -->
+      <div class="content-wrapper">
+        <div class="profile-header">
+          <div class="profile-avatar">
+            <i class="fas fa-user-circle"></i>
+          </div>
+          <div class="profile-info">
+            <h1 id="profile-name">User Name</h1>
+            <p id="profile-email">user@example.com</p>
+          </div>
+        </div>
+        
+        <div class="profile-content">
+          <div class="card">
+            <h2>Account Information</h2>
+            <div class="form-group">
+              <label for="user-fullname">
+                <i class="fas fa-user"></i> Full Name
+              </label>
+              <input type="text" id="user-fullname" placeholder="Full Name">
+            </div>
+            <div class="form-group">
+              <label for="user-email">
+                <i class="fas fa-envelope"></i> Email
+              </label>
+              <input type="email" id="user-email" placeholder="Email">
+            </div>
+            <div class="form-group">
+              <label for="user-password">
+                <i class="fas fa-key"></i> Password
+              </label>
+              <input type="password" id="user-password" placeholder="Password">
+            </div>
+            <button id="save-profile" class="btn btn-primary">Save Changes</button>
+          </div>
+
+          <div class="card">
+            <h2>Account Statistics</h2>
+            <div class="stats-grid">
+              <div class="stat-item">
+                <div class="stat-value" id="total-tasks">0</div>
+                <div class="stat-label">Total Tasks</div>
+              </div>
+              <div class="stat-item">
+                <div class="stat-value" id="completed-tasks">0</div>
+                <div class="stat-label">Completed</div>
+              </div>
+              <div class="stat-item">
+                <div class="stat-value" id="completion-rate">0%</div>
+                <div class="stat-label">Completion Rate</div>
+              </div>
+              <div class="stat-item">
+                <div class="stat-value" id="account-age">0</div>
+                <div class="stat-label">Days Active</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="card danger-zone">
+            <h2>Danger Zone</h2>
+            <p>This will immediately delete all of your data including tasks, projects, comments, and more. This action cannot be undone.</p>
+            <button id="delete-account" class="btn btn-danger">
+              <i class="fas fa-trash"></i> Delete Account
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Delete Account Confirmation Modal -->
+  <div id="delete-confirmation-modal" class="modal">
+    <div class="modal-content confirmation-modal">
+      <h2>Delete Account</h2>
+      <p>Are you absolutely sure you want to delete your account? This action cannot be undone and all your data will be permanently lost.</p>
+      <div class="confirmation-actions">
+        <button id="cancel-delete" class="btn">Cancel</button>
+        <button id="confirm-delete" class="btn btn-danger">Yes, Delete My Account</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/auth-check.js"></script>
+  <script src="js/theme.js"></script>
+  <script src="js/user-profile.js"></script>
+  <script src="js/mobile.js"></script>
+</body>
+</html>
+

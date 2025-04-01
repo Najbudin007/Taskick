@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Taskick - Customization</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/mobile-styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+  <div class="app-container">
+    <!-- Sidebar overlay -->
+    <div class="sidebar-overlay"></div>
+    
+    <!-- Sidebar -->
+    <div class="sidebar">
+      <div class="sidebar-header">
+        <h1>Taskick</h1>
+      </div>
+      <div class="user-info">
+        <i class="fas fa-user-circle"></i>
+        <span id="user-name">User Account</span>
+      </div>
+      <ul class="nav-menu">
+        <li><a href="dashboard.html"><i class="fas fa-home"></i> Home</a></li>
+        <li><a href="calendar.html"><i class="fas fa-calendar"></i> Calendar</a></li>
+        <li><a href="progress.html"><i class="fas fa-chart-line"></i> My Progress</a></li>
+        <li class="active"><a href="customization.html"><i class="fas fa-paint-brush"></i> Customization</a></li>
+        <li><a href="settings.html"><i class="fas fa-cog"></i> Settings</a></li>
+      </ul>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+      <!-- Header -->
+      <header class="main-header">
+        <div class="header-left">
+          <div class="hamburger-menu">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+        </div>
+        <div class="quote">Procrastination is the art of keeping up with yesterday.</div>
+        <div class="header-right">
+          <div class="search-box">
+            <input type="text" placeholder="Search">
+            <button><i class="fas fa-search"></i></button>
+          </div>
+          <div class="notification">
+            <i class="fas fa-bell"></i>
+            <span class="notification-badge">1</span>
+          </div>
+        </div>
+      </header>
+
+      <!-- Customization Content -->
+      <div class="content-wrapper">
+        <!-- Themes Card -->
+        <div class="card">
+          <h2>Themes</h2>
+          <p>Because who wouldn't want to change their entire vibe with just one click? Sure, it's that easy.</p>
+          
+          <div class="toggle-container">
+            <label class="toggle">
+              <span>Auto Dark Mode</span>
+              <input type="checkbox" id="auto-dark-mode">
+              <span class="slider round"></span>
+            </label>
+          </div>
+          
+          <div class="theme-options">
+            <div class="theme-card" data-theme="light">
+              <div class="theme-preview light-theme"></div>
+              <span>Light</span>
+            </div>
+            <div class="theme-card" data-theme="dark">
+              <div class="theme-preview dark-theme"></div>
+              <span>Dark</span>
+            </div>
+            <div class="theme-card" data-theme="vibrant">
+              <div class="theme-preview vibrant-theme"></div>
+              <span>Vibrant</span>
+            </div>
+            <div class="theme-card" data-theme="tech">
+              <div class="theme-preview tech-theme"></div>
+              <span>Tech</span>
+            </div>
+            <div class="theme-card add-theme" id="add-theme">
+              <div class="theme-preview">
+                <i class="fas fa-plus"></i>
+              </div>
+              <span>Add</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Humor Card -->
+        <div class="card">
+          <h2>Humor</h2>
+          <div class="humor-level">
+            <label for="humor-slider">Level</label>
+            <input type="range" id="humor-slider" min="0" max="100" value="50">
+          </div>
+        </div>
+
+        <button id="update-customization" class="btn btn-primary">Update</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Add Theme Modal -->
+  <div id="theme-modal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <h2>Add New Theme</h2>
+      <div class="form-group">
+        <label for="theme-name">Theme Name</label>
+        <input type="text" id="theme-name" placeholder="Enter theme name">
+      </div>
+      <div class="form-group">
+        <label for="theme-color">Primary Color</label>
+        <div style="display: flex; align-items: center;">
+          <input type="text" id="theme-color" placeholder="#RRGGBB" style="flex: 1;">
+          <input type="color" id="color-picker" value="#4CAF50">
+        </div>
+      </div>
+      <button id="save-theme-btn" class="btn btn-primary">Save Theme</button>
+    </div>
+  </div>
+
+  <script src="js/auth-check.js"></script>
+  <script src="js/theme.js"></script>
+  <script src="js/customization.js"></script>
+  <script src="js/mobile.js"></script>
+</body>
+</html>
+

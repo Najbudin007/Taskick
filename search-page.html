@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Taskick - Search Results</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/mobile-styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+  <div class="app-container">
+    <!-- Sidebar overlay -->
+    <div class="sidebar-overlay"></div>
+    
+    <!-- Sidebar -->
+    <div class="sidebar">
+      <div class="sidebar-header">
+        <h1>Taskick</h1>
+      </div>
+      <div class="user-info">
+        <i class="fas fa-user-circle"></i>
+        <span id="user-name">User Account</span>
+      </div>
+      <ul class="nav-menu">
+        <li><a href="dashboard.html"><i class="fas fa-home"></i> Home</a></li>
+        <li><a href="calendar.html"><i class="fas fa-calendar"></i> Calendar</a></li>
+        <li><a href="progress.html"><i class="fas fa-chart-line"></i> My Progress</a></li>
+        <li><a href="customization.html"><i class="fas fa-paint-brush"></i> Customization</a></li>
+        <li><a href="settings.html"><i class="fas fa-cog"></i> Settings</a></li>
+      </ul>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+      <!-- Header -->
+      <header class="main-header">
+        <div class="header-left">
+          <div class="hamburger-menu">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+        </div>
+        <div class="quote">Procrastination is the art of keeping up with yesterday.</div>
+        <div class="header-right">
+          <div class="search-box">
+            <input type="text" id="header-search-input" placeholder="Search">
+            <button id="header-search-button"><i class="fas fa-search"></i></button>
+          </div>
+          <div class="notification">
+            <i class="fas fa-bell"></i>
+            <span class="notification-badge">1</span>
+          </div>
+        </div>
+      </header>
+
+      <!-- Search Content -->
+      <div class="content-wrapper">
+        <div class="card">
+          <div class="search-header">
+            <h2>Search Results for "<span id="search-query-display"></span>"</h2>
+            <div class="search-filters">
+              <select id="search-filter" class="sidebar-input">
+                <option value="all">All Tasks</option>
+                <option value="completed">Completed Tasks</option>
+                <option value="incomplete">Incomplete Tasks</option>
+              </select>
+              <select id="search-sort" class="sidebar-input">
+                <option value="relevance">Sort by Relevance</option>
+                <option value="date-asc">Date (Oldest First)</option>
+                <option value="date-desc">Date (Newest First)</option>
+                <option value="priority">Priority (High to Low)</option>
+              </select>
+            </div>
+          </div>
+          
+          <div id="search-results" class="search-results-container">
+            <!-- Search results will be dynamically added here -->
+            <div class="loading-spinner">
+              <i class="fas fa-spinner fa-spin"></i>
+              <span>Searching...</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/auth-check.js"></script>
+  <script src="js/theme.js"></script>
+  <script src="js/search.js"></script>
+  <script src="js/mobile.js"></script>
+</body>
+</html>
+

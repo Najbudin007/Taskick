@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Taskick - My Progress</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/mobile-styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- Include Chart.js -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <div class="app-container">
+    <!-- Sidebar overlay -->
+    <div class="sidebar-overlay"></div>
+    
+    <!-- Sidebar -->
+    <div class="sidebar">
+      <div class="sidebar-header">
+        <h1>Taskick</h1>
+      </div>
+      <div class="user-info">
+        <i class="fas fa-user-circle"></i>
+        <span id="user-name">User Account</span>
+      </div>
+      <ul class="nav-menu">
+        <li><a href="dashboard.html"><i class="fas fa-home"></i> Home</a></li>
+        <li><a href="calendar.html"><i class="fas fa-calendar"></i> Calendar</a></li>
+        <li class="active"><a href="progress.html"><i class="fas fa-chart-line"></i> My Progress</a></li>
+        <li><a href="customization.html"><i class="fas fa-paint-brush"></i> Customization</a></li>
+        <li><a href="settings.html"><i class="fas fa-cog"></i> Settings</a></li>
+      </ul>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+      <!-- Header -->
+      <header class="main-header">
+        <div class="header-left">
+          <div class="hamburger-menu">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+        </div>
+        <div class="quote">Procrastination is the art of keeping up with yesterday.</div>
+        <div class="header-right">
+          <div class="search-box">
+            <input type="text" placeholder="Search">
+            <button><i class="fas fa-search"></i></button>
+          </div>
+          <div class="notification">
+            <i class="fas fa-bell"></i>
+            <span class="notification-badge">1</span>
+          </div>
+        </div>
+      </header>
+
+      <!-- Progress Content -->
+      <div class="content-wrapper">
+        <div class="progress-content" style="display: flex; gap: 20px; flex-wrap: wrap;">
+          <!-- Completed Task Card -->
+          <div class="card" style="flex: 1; min-width: 300px;">
+            <h2>Completed Task</h2>
+            <div class="progress-overview">
+              <div class="progress-text">Total task completed</div>
+              <div class="progress-chart">
+                <div class="progress-circle" id="progress-circle">
+                  <span id="progress-percentage">0%</span>
+                </div>
+              </div>
+            </div>
+            <div class="progress-tabs">
+              <button class="tab-btn active" data-tab="daily">Daily</button>
+              <button class="tab-btn" data-tab="weekly">Weekly</button>
+              <button class="tab-btn" data-tab="monthly">Monthly</button>
+            </div>
+            <div class="completed-tasks" id="completed-tasks">
+              <!-- Completed tasks will be dynamically added here -->
+            </div>
+          </div>
+          <!-- Graph Card -->
+          <div class="card" style="flex: 1; min-width: 300px;">
+            <h2>Graph</h2>
+            <div class="graph-container" id="graph-container" style="position: relative; height: 300px;">
+              <canvas id="graph-canvas" style="width: 100%; height: 100%;"></canvas>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/auth-check.js"></script>
+  <script src="js/theme.js"></script>
+  <script src="js/progress.js"></script>
+  <script src="js/mobile.js"></script>
+</body>
+</html>
+

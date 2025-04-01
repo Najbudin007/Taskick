@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Taskick - Calendar</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/mobile-styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+  <div class="app-container">
+    <!-- Sidebar overlay -->
+    <div class="sidebar-overlay"></div>
+    
+    <!-- Sidebar -->
+    <div class="sidebar">
+      <div class="sidebar-header">
+        <h1>Taskick</h1>
+      </div>
+      <div class="user-info">
+        <i class="fas fa-user-circle"></i>
+        <span id="user-name">User Account</span>
+      </div>
+      <ul class="nav-menu">
+        <li><a href="dashboard.html"><i class="fas fa-home"></i> Home</a></li>
+        <li class="active"><a href="calendar.html"><i class="fas fa-calendar"></i> Calendar</a></li>
+        <li><a href="progress.html"><i class="fas fa-chart-line"></i> My Progress</a></li>
+        <li><a href="customization.html"><i class="fas fa-paint-brush"></i> Customization</a></li>
+        <li><a href="settings.html"><i class="fas fa-cog"></i> Settings</a></li>
+      </ul>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+      <!-- Header -->
+      <header class="main-header">
+        <div class="header-left">
+          <div class="hamburger-menu">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+        </div>
+        <div class="quote">Procrastination is the art of keeping up with yesterday.</div>
+        <div class="header-right">
+          <div class="search-box">
+            <input type="text" placeholder="Search">
+            <button><i class="fas fa-search"></i></button>
+          </div>
+          <div class="notification">
+            <i class="fas fa-bell"></i>
+            <span class="notification-badge">1</span>
+          </div>
+        </div>
+      </header>
+
+      <!-- Calendar Layout -->
+      <div class="content-wrapper">
+        <!-- Calendar Section -->
+        <div class="calendar-panel">
+          <div class="calendar-header">
+            <button id="prev-month" class="btn btn-icon">
+              <i class="fas fa-chevron-left"></i>
+            </button>
+            <h2 id="current-month">Month Year</h2>
+            <button id="next-month" class="btn btn-icon">
+              <i class="fas fa-chevron-right"></i>
+            </button>
+          </div>
+          
+          <!-- Weekdays Header -->
+          <div class="weekdays">
+            <div>Sun</div>
+            <div>Mon</div>
+            <div>Tue</div>
+            <div>Wed</div>
+            <div>Thu</div>
+            <div>Fri</div>
+            <div>Sat</div>
+          </div>
+          
+          <!-- Calendar Days Grid -->
+          <div id="calendar-days" class="calendar-container">
+            <!-- Calendar days will be dynamically added here -->
+          </div>
+        </div>
+
+        <!-- Tasks for Selected Date -->
+        <div class="tasks-panel" style="margin-top: 20px;">
+          <div class="day-tasks" id="day-tasks">
+            <h3 id="selected-date">Tasks for Selected Date</h3>
+            <div id="day-task-list" class="task-list">
+              <!-- Tasks for the selected day will be dynamically added here -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/auth-check.js"></script>
+  <script src="js/theme.js"></script>
+  <script src="js/calendar.js"></script>
+  <script src="js/mobile.js"></script>
+</body>
+</html>
+

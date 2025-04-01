@@ -1,0 +1,81 @@
+/* Mobile-specific styles */
+@media (max-width: 768px) {
+    /* Hide sidebar by default on mobile */
+    .sidebar {
+      transform: translateX(-100%);
+      position: fixed;
+      z-index: 1000;
+      transition: transform 0.3s ease;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+      width: 250px; /* Set explicit width for mobile */
+      height: 100%;
+      top: 0;
+      left: 0;
+      overflow-y: auto;
+    }
+  
+    /* Show sidebar when active class is added */
+    .sidebar.active {
+      transform: translateX(0);
+    }
+  
+    /* Remove left margin from main content on mobile */
+    .main-content {
+      margin-left: 0;
+      width: 100%;
+    }
+  
+    /* Style for hamburger menu */
+    .hamburger-menu {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      width: 24px;
+      height: 18px;
+      cursor: pointer;
+      margin-right: 15px;
+      z-index: 1001;
+    }
+  
+    .hamburger-menu span {
+      display: block;
+      height: 2px;
+      width: 100%;
+      background-color: var(--text-color);
+      border-radius: 2px;
+      transition: all 0.3s ease;
+    }
+  
+    /* Sidebar overlay */
+    .sidebar-overlay {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      z-index: 999;
+    }
+  
+    /* Header adjustments for mobile */
+    .main-header {
+      padding: 10px 15px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+  
+    /* Hide the quote on mobile */
+    .quote {
+      display: none;
+    }
+  
+    /* Adjust header layout */
+    .header-left {
+      display: flex;
+      align-items: center;
+    }
+  }
+  
+  
